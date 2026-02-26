@@ -153,7 +153,7 @@ The application will run on http://localhost:5173
 
 | Variable     | Description                        |
 | ------------ | ---------------------------------- |
-| PORT         | Server port (default: 3001)        |
+| PORT         | Server port (default: 3000)        |
 | GROQ_API_KEY | Groq Cloud API key for AI features |
 
 ## License
