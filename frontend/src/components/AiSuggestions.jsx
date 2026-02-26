@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 export default function AiSuggestions() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -11,7 +13,7 @@ export default function AiSuggestions() {
     try {
       setLoading(true);
 
-      const response = await axios.post("/api/ai-suggestions", {
+      const response = await axios.post(`${API_URL}/api/ai-suggestions`, {
         title,
         content,
       });

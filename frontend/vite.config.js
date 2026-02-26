@@ -11,4 +11,13 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    proxy: {
+      "/api": {
+        target: "https://blog-application-with-ai-content.onrender.com",
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 });

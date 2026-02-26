@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 export default function BlogDetail({ blog, onBack, onEdit }) {
   const [currentBlog, setCurrentBlog] = useState(blog);
 
@@ -12,7 +14,7 @@ export default function BlogDetail({ blog, onBack, onEdit }) {
 
   const fetchBlog = async (id) => {
     try {
-      const response = await axios.get(`/api/blogs/${id}`);
+      const response = await axios.get(`${API_URL}/api/blogs/${id}`);
       setCurrentBlog(response.data);
     } catch (error) {
       console.error("Error fetching blog:", error);
@@ -23,7 +25,7 @@ export default function BlogDetail({ blog, onBack, onEdit }) {
     if (!window.confirm("Are you sure you want to delete this blog?")) return;
 
     try {
-      await axios.delete(`/api/blogs/${currentBlog.id}`);
+      await axios.delete(`${API_URL}/api/blogs/${currentBlog.id}`);
       alert("Blog deleted successfully");
       onBack();
     } catch (error) {

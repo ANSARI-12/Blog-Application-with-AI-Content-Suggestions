@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 export default function WriteBlog({ blogToEdit, onSave, onCancel }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -27,7 +29,7 @@ export default function WriteBlog({ blogToEdit, onSave, onCancel }) {
 
     try {
       setAiLoading(true);
-      const response = await axios.post("/api/ai-suggestions", {
+      const response = await axios.post(`${API_URL}/api/ai-suggestions`, {
         title,
         content,
       });
@@ -69,14 +71,14 @@ export default function WriteBlog({ blogToEdit, onSave, onCancel }) {
     setLoading(true);
     try {
       if (blogToEdit) {
-        await axios.put(`/api/blogs/${blogToEdit.id}`, {
+        await axios.put(`${API_URL}/api/blogs/${blogToEdit.id}`, {
           title,
           content,
           author,
         });
         alert("Blog updated successfully!");
       } else {
-        await axios.post("/api/blogs", {
+        await axios.post(`${API_URL}/api/blogs`, {
           title,
           content,
           author,
