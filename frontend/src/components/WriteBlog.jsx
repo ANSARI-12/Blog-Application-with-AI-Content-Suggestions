@@ -69,7 +69,6 @@ export default function WriteBlog({ blogToEdit, onSave, onCancel }) {
     setLoading(true);
     try {
       if (blogToEdit) {
-        // Update existing blog
         await axios.put(`/api/blogs/${blogToEdit.id}`, {
           title,
           content,
@@ -77,7 +76,6 @@ export default function WriteBlog({ blogToEdit, onSave, onCancel }) {
         });
         alert("Blog updated successfully!");
       } else {
-        // Create new blog
         await axios.post("/api/blogs", {
           title,
           content,
@@ -148,7 +146,6 @@ export default function WriteBlog({ blogToEdit, onSave, onCancel }) {
           />
           {errors.content && <span style={styles.error}>{errors.content}</span>}
 
-          {/* AI Suggestions Button */}
           <button
             type="button"
             style={styles.aiBtn}
@@ -158,7 +155,6 @@ export default function WriteBlog({ blogToEdit, onSave, onCancel }) {
             {aiLoading ? "Getting Suggestions..." : "Get AI Suggestions"}
           </button>
 
-          {/* AI Suggestions Display */}
           {showSuggestions && (
             <div style={styles.suggestionsBox}>
               <div style={styles.suggestionsHeader}>
