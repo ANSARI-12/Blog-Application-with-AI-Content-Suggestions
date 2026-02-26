@@ -9,7 +9,7 @@ A full-stack blog application with AI-powered suggestions. Built with React (fro
 - 🗂️ Organized by title, content, author, and timestamps
 - 🎨 Clean and responsive user interface
 
-##🚀 Live Deployment
+## Live Deployment
 🌐 Frontend (Live App)
 👉 https://blog-application-with-ai-content.onrender.com
 
